@@ -1,0 +1,19 @@
+services:
+  product-db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./product-service/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+
+  product-service:
+    build: ./product-service
+    depends_on:
+      - product-db
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: product-db
