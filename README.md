@@ -107,7 +107,7 @@ docker logs go-commerce-product-service-1
 - Middleware usage (Logger, Recovery)
 
 ### 🔹 Docker
-- Creating Dockerfiles
+- Creating Dockerfiles.
 - Containerizing Go apps
 - Connecting services via Docker Compose
 
