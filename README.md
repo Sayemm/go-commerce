@@ -20,15 +20,15 @@ This is the **Product Service** of the `go-commerce` project — a modular e-com
 
 ```
 go-commerce/
-├── backend/
+├── product-service/
 │   ├── db/              # DB connection logic
 │   ├── handlers/        # HTTP handlers (controllers)
 │   ├── models/          # Data models (e.g., Product)
-│   ├── routes/          # API routes
 │   ├── main.go          # Entry point
 │   ├── go.mod
-│   └── go.sum
-├── Dockerfile           # Build config for product service
+│   ├── go.sum
+│   ├── init.sql
+│   └── Dockerfile       # Build config for product service
 ├── docker-compose.yml   # Defines product-service + MySQL setup
 └── README.md            # Project overview (this file)
 ```
