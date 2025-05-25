@@ -123,7 +123,3 @@ docker logs go-commerce-product-service-1
 - [ ] CI/CD + Deployment via Kubernetes
 
 ---
-
-## ✍️ Author
-
-**Sayem** — Aspiring backend engineer learning Go by building real-world projects.
