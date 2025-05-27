@@ -35,5 +35,4 @@ services:
     ports:
       - "8001:8001"
     environment:
-      - DB_HOST: cart-db
-      
+      DB_HOST: cart-db

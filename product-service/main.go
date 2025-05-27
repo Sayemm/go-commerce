@@ -11,7 +11,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/products", handlers.GetProducts)
-	r.POST("products", handlers.AddProduct)
+	r.POST("/products", handlers.AddProduct)
 
 	r.Run(":8000")
 }
