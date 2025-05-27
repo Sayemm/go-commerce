@@ -17,3 +17,23 @@ services:
       - "8000:8000"
     environment:
       DB_HOST: product-db
+
+  cart-db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./cart-service/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3308:3306"
+
+  cart-service:
+    build: ./cart-service
+    depends_on:
+      - cart-db
+    ports:
+      - "8001:8001"
+    environment:
+      - DB_HOST: cart-db
+      
