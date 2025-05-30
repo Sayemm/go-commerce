@@ -40,8 +40,10 @@ Order Service:
 
 1. Clone the Repository
 
+```bash
 git clone https://github.com/Sayemm/go-commerce.git
 cd go-commerce
+```
 
 2. Run the Project
 
