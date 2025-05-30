@@ -36,3 +36,22 @@ services:
       - "8001:8001"
     environment:
       DB_HOST: cart-db
+
+  order-db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3309:3306"
+    volumes:
+      - ./order-service/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  order-service:
+    build: ./order-service
+    depends_on:
+      - order-db
+    ports:
+      - "8002:8002"
+    environment:
+      DB_HOST: order-db
