@@ -1,40 +1,52 @@
-# E-commerce Checkout System - Microservices in Golang
+# 🛒 E-commerce Checkout System – Microservices in Go
 
-This project is a containerized E-commerce Checkout System built using Go (Golang) with REST APIs for the Product, Cart, and Order services. Each service is independent, uses its own MySQL database, and is managed using Docker Compose.
+This is a containerized **E-commerce Checkout System** built using **Go (Golang)**. It follows a **microservices architecture** with independent REST APIs for **Product**, **Cart**, and **Order** services. Each service has its own **MySQL** database and is orchestrated using **Docker Compose**.
 
-## Project Overview
+---
+
+## 🚀 Project Overview
 
 The system consists of three microservices:
 
-- Product Service: Handles product creation and listing.
-- Cart Service: Manages items added to a user's cart.
-- Order Service: Handles order placement and viewing.
+- **Product Service**: Manage product creation and listing.
+- **Cart Service**: Handle cart operations.
+- **Order Service**: Place and view orders.
 
-Each service is written in Go using the gin framework, uses sqlx for database operations, and has its own Docker container.
+Each microservice is:
 
-## Tech Stack
+- Written in Go using the **Gin** framework
+- Uses **sqlx** for database interactions
+- Runs in its own Docker container
 
-- Go (Golang)
-- Gin
-- MySQL
-- sqlx
-- Docker & Docker Compose
+---
 
-## Features Implemented
+## 🛠 Tech Stack
 
-Product Service:
+- **Go (Golang)**
+- **Gin** (Web Framework)
+- **MySQL**
+- **sqlx** (Database library)
+- **Docker & Docker Compose**
+
+---
+
+## ✅ Features
+
+### 🛍 Product Service
 - Add new products
 - List all products
 
-Cart Service:
+### 🧺 Cart Service
 - Add products to cart
-- List items in cart
+- View cart items
 
-Order Service:
+### 📦 Order Service
 - Place orders
-- List order history
+- View order history
 
-## Setup Instructions
+---
+
+## ⚙️ Getting Started
 
 ### Steps to Run
 
@@ -47,7 +59,9 @@ cd go-commerce
 
 2. Run the Project
 
+```bash
 docker-compose up --build
+```
 
 3. Access Services
 
