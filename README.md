@@ -1,125 +1,97 @@
-# 🛒 Go-Commerce — Product Service
+# E-commerce Checkout System - Microservices in Golang
 
-This is the **Product Service** of the `go-commerce` project — a modular e-commerce system built using Go, MySQL, Docker, and Docker Compose. This microservice handles product-related operations like listing and adding products.
+This project is a containerized E-commerce Checkout System built using Go (Golang) with REST APIs for the Product, Cart, and Order services. Each service is independent, uses its own MySQL database, and is managed using Docker Compose.
 
-> ⚠️ This is **not a complete application**, but the **first service** in a growing microservices architecture. Future services like Cart, Order, Payment, and Authentication will be added.
+## Project Overview
 
----
+The system consists of three microservices:
 
-## ✅ Current Features
+- Product Service: Handles product creation and listing.
+- Cart Service: Manages items added to a user's cart.
+- Order Service: Handles order placement and viewing.
 
-- RESTful API using Gin
-- `GET /products` — List all products
-- `POST /products` — Add a new product
-- MySQL integration via SQLx
-- Dockerized using Docker & Docker Compose
+Each service is written in Go using the gin framework, uses sqlx for database operations, and has its own Docker container.
 
----
+## Folder Structure
 
-## 🗂️ Project Structure
-
-```
 go-commerce/
 ├── product-service/
-│   ├── db/              # DB connection logic
-│   ├── handlers/        # HTTP handlers (controllers)
-│   ├── models/          # Data models (e.g., Product)
-│   ├── main.go          # Entry point
-│   ├── go.mod
-│   ├── go.sum
-│   ├── init.sql
-│   └── Dockerfile       # Build config for product service
-├── docker-compose.yml   # Defines product-service + MySQL setup
-└── README.md            # Project overview (this file)
-```
+│   ├── main.go
+│   ├── db/
+│   ├── models/
+│   ├── handlers/
+│   ├── routes/
+│   └── Dockerfile
+├── cart-service/
+│   ├── main.go
+│   ├── db/
+│   ├── models/
+│   ├── handlers/
+│   ├── routes/
+│   └── Dockerfile
+├── order-service/
+│   ├── main.go
+│   ├── db/
+│   ├── models/
+│   ├── handlers/
+│   ├── routes/
+│   └── Dockerfile
+├── docker-compose.yml
+└── README.md
 
----
+## Tech Stack
 
-## 🔗 API Endpoints
+- Go (Golang)
+- Gin
+- MySQL
+- sqlx
+- Docker & Docker Compose
 
-### ➕ Add Product
+## Features Implemented
 
-```http
-POST /products
-Content-Type: application/json
+Product Service:
+- Add new products
+- List all products
 
-{
-  "name": "Laptop",
-  "price": 999.99,
-  "quantity": 10
-}
-```
+Cart Service:
+- Add products to cart
+- List items in cart
 
-### 📦 Get Products
+Order Service:
+- Place orders
+- List order history
 
-```http
-GET /products
-```
+## Setup Instructions
 
-Returns an array of products.
+### Steps to Run
 
----
+1. Clone the Repository
 
-## 🐳 Docker & Compose Commands
+git clone https://github.com/Sayemm/go-commerce.git
+cd go-commerce
 
-### ⚙️ Build & Run Services
+2. Run the Project
 
-```bash
 docker-compose up --build
-```
 
-### ▶️ Start Existing Containers
+3. Access Services
 
-```bash
-docker-compose start
-```
+Product Service: http://localhost:8000  
+Cart Service: http://localhost:8001  
+Order Service: http://localhost:8002
 
-### ⏹️ Stop Running Containers
+## Learnings
 
-```bash
-docker-compose stop
-```
+- Building REST APIs in Go using Gin
+- Using sqlx to interact with MySQL databases
+- Writing modular, scalable microservices
+- Dockerizing Go apps
+- Managing multi-container apps using Docker Compose
 
-### 🔁 Restart Containers
+## Upcoming Features
 
-```bash
-docker-compose restart
-```
-
-### 📄 View Logs
-
-```bash
-docker logs go-commerce-product-service-1
-```
-
----
-
-## 🧠 What I've Learned So Far
-
-### 🔹 Go (Golang)
-- Structs, modules, packages
-- SQLx for DB interaction
-- Clean folder structure for scalability
-
-### 🔹 Gin Web Framework
-- Routing
-- JSON parsing & response
-- Middleware usage (Logger, Recovery)
-
-### 🔹 Docker
-- Creating Dockerfiles
-- Containerizing Go apps
-- Connecting services via Docker Compose
-
----
-
-## 🛣️ Roadmap
-
-- [ ] Add Cart Service
-- [ ] Add Order Service
-- [ ] Add Authentication (JWT)
-- [ ] Add Payment Gateway Integration
-- [ ] Add React Frontend
-- [ ] CI/CD + Deployment via Kubernetes
-
----
+- Product inventory deduction on order placement
+- Cart → Order integration with item validation
+- gRPC or Kafka for inter-service communication
+- User authentication service with JWT
+- React frontend for full-stack experience
