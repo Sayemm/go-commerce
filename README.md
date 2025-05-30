@@ -12,33 +12,6 @@ The system consists of three microservices:
 
 Each service is written in Go using the gin framework, uses sqlx for database operations, and has its own Docker container.
 
-## Folder Structure
-
-go-commerce/
-├── product-service/
-│   ├── main.go
-│   ├── db/
-│   ├── models/
-│   ├── handlers/
-│   ├── routes/
-│   └── Dockerfile
-├── cart-service/
-│   ├── main.go
-│   ├── db/
-│   ├── models/
-│   ├── handlers/
-│   ├── routes/
-│   └── Dockerfile
-├── order-service/
-│   ├── main.go
-│   ├── db/
-│   ├── models/
-│   ├── handlers/
-│   ├── routes/
-│   └── Dockerfile
-├── docker-compose.yml
-└── README.md
-
 ## Tech Stack
 
 - Go (Golang)
